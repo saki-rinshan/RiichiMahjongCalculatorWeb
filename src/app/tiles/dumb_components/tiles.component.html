@@ -1,0 +1,17 @@
+
+<div class = "tiles">
+	<div *ngFor="let tiles of tileList.suitTiles; let r = index">
+		<div class = "inner"
+			[ngStyle]="{'left': r==3? '-30%': '-40%'}">
+			<div *ngFor="let tile of tiles">
+				<img src ='{{imgFolder}}{{tile.name}}.png' 
+					class="tile"
+					width="9%" 
+					length ="100%" 
+					(click)="shouldDisableTile(tile) ? undefined : tileClicked(tile)"
+					[ngClass]="{'fourTiles': shouldDisableTile(tile)}"
+					[ngStyle]="{'background-color': tile.isDora? 'salmon' :'#FFFFFF'}">
+			</div>
+		</div>  
+	</div>
+</div>

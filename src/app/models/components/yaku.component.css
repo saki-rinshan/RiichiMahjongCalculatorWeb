@@ -1,0 +1,13 @@
+.hanCenter {
+	text-align: center;
+	padding: 6px;
+	margin-left: 10%;
+	font-size: 20px; 
+	font-family: URW Chancery L, cursive;
+}
+
+.leftTextYaku {
+	text-align: left;
+	clear: left;
+	width: 40%;
+}

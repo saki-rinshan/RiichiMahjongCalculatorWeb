@@ -1,0 +1,141 @@
+<div class = "body">
+	<div  class = "userTiles">
+		<!--Used for the calcultor tile display section Temp Solution only-->
+		<div *ngIf="this.sets.length < 5">
+			<div  *ngFor="let tile of this.tiles; let i = index">
+				<img src='{{imgFolder}}{{tile.name}}.png' 
+					width="50" 
+					length ="50" 
+					(click)="tileClicked(tile)"
+					class="tile"
+					[class.userTiles]="true"
+					[ngStyle]="{'background-color': tile.isDora? 'salmon' :'#AFFFFF'}"
+					[ngClass]="{'lastAdded' : (i == this.mainTilesService.agariIndex)}">
+			</div>
+		</div>
+		<div *ngFor="let set of this.sets">	
+			<div class = "setTiles">
+				<div *ngIf= "set.stype == setType.Jantou">
+					<img src='{{imgFolder}}{{set.tiles[0].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[0].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[1].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[1].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+				</div>
+				<div *ngIf= "set.stype == setType.Shuntsu">	
+					<img src='{{imgFolder}}{{set.tiles[0].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[0].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[1].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[1].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[2].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[2].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+				</div>
+				<div *ngIf= "set.stype == setType.Koutsu">
+					<img src='{{imgFolder}}{{set.tiles[0].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[0].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[1].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[1].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[2].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[2].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+				</div>
+				<div *ngIf= "set.stype == setType.Kantsu && set.is_open">
+					<img src='{{imgFolder}}{{set.tiles[0].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[0].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[1].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[1].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[2].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[2].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[3].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[3].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+				</div>
+				<div *ngIf= "set.is_open  == false && set.stype == setType.Kantsu">
+					<img src='{{imgFolder}}Front.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[1].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[1].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}{{set.tiles[2].name}}.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						[ngStyle]="{'background-color': set.tiles[2].isDora? 'salmon' :'#AFFFFF'}"
+						class="tile"
+						[class.userTiles]="true">
+					<img src='{{imgFolder}}Front.png' 
+						width="50" 
+						length ="50" 
+						(click)="setClicked(set)"
+						class="tile"
+						[class.userTiles]="true">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

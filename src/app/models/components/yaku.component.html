@@ -1,0 +1,9 @@
+<div class="row">
+	<div *ngIf="!isYakuman" class ="yaku">
+		<p class = "leftText"> {{yaku.name}}		</p> 
+		<p class ="rightText"> {{displayed_han}}{{this.languageService.strings.hanText}}</p>
+	</div>
+	<div *ngIf="isYakuman" class ="yaku">
+		<p class = "hanCenter">  {{yaku.name}}		</p> 
+	</div>
+</div>

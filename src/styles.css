@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+	!background-image: linear-gradient(#FEA9F3, #FA69E7, #F73CDE);
+	background-image: linear-gradient(#FEA9F3, #FA69E7, #F73CDE);
+  
+	min-height: 100%;
+	background-size: cover;
+}
+
+img {
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+}

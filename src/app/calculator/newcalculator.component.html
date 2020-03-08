@@ -1,0 +1,219 @@
+
+<div *ngFor="let hand of this.recognizerService.possibleHands;">
+	<div [ngClass]="{'columnL': !hand.containsYakuman(), 'centerTable': hand.containsYakuman()}">
+		<div class = "titleFont">
+			<div *ngIf="!hand.containsYakuman()">
+				<p class = "leftText">{{this.languageService.strings.yakuText}}</p>
+				<div class = "nom">
+					<p class = "rightText">{{getHanString(hand)}}</p>
+					<span class="tooltiptext" *ngIf="(getHanString(hand).indexOf(' ') == -1) && this.languageService.currentLanguage == 1" >
+					満貫: 3* 4** 5 飜<br>
+					跳満: 6-7 飜<br>
+					倍満: 8-10 飜<br>
+					三倍満: 11-12 飜<br>
+					役満: 13+ 飜<br>
+					*3飜 + 70符以上<br>
+					**4飜 + 50符以上<br>
+					
+					</span>
+					<span class="tooltiptext" *ngIf="(getHanString(hand).indexOf(' ') == -1) && this.languageService.currentLanguage == 0" >
+					Mangan: 3* 4** 5 Han<br>
+					Haneman: 6-7 Han<br>
+					Baiman: 8-10 Han<br>
+					Sanbaiman: 11-12 Han<br>
+					Yakuman: 13+ Han<br>
+					*3 han + minimun of 70 fu<br>
+					**4 han + minimun of 50 fu<br>
+					</span>
+				</div>
+				<hr> 
+			</div>
+			<div *ngIf="hand.containsYakuman()">
+				<p class ="centerText" font size="7">{{this.languageService.strings.yakumanText}}</p>
+				<hr>
+			</div>
+		</div>
+		<div *ngIf="!hand.containsYakuman()">
+			<div *ngFor="let yaku of hand.validYaku">
+				<div class="yaku"
+					[ngClass] = "{ 'padBottom': (this.languageService.currentLanguage == 1)}">
+					<yaku [yaku] = "yaku"
+					[isOpen]= "hand.isOpen"
+					[isYakuman]="false"> </yaku>
+					<span class="tooltiptext"> <font size="4"><u>{{yaku.name}}</u></font> <br>
+											<i>{{yaku.pronounciation}}</i> <br>
+											{{yaku.tooltip}} <br> </span>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="hand.containsYakuman()">
+			<div *ngFor="let yaku of hand.getYakuman()">
+				<div class="yaku" 
+					[ngClass] = "{ 'padBottom': (this.languageService.currentLanguage == 1)}">
+					<yaku [yaku] = "yaku"
+					[isOpen]= "hand.isOpen"
+					[isYakuman]="true"> </yaku>
+					<span class="tooltiptext"> <font size="4"><u>{{yaku.name}}</u></font> <br>
+											<i>{{yaku.pronounciation}}</i> <br>
+											{{yaku.tooltip}} <br> </span>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="!hand.containsYakuman()">
+		<div *ngFor="let yaku of hand.otherYaku">
+			<div class="yaku">
+				<yaku [yaku] = "yaku"
+				[isOpen]= "hand.isOpen"
+				[isYakuman]="hand.han >= 13" > </yaku>
+				<span class="tooltiptext"> <font size="4"><u>{{yaku.name}}</u></font> <br>
+											<i>{{yaku.pronounciation}}</i> <br>
+											{{yaku.tooltip}} <br> </span>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	<div *ngIf="!hand.containsYakuman()">
+		<div class="columnR">
+		<div class="row">
+			<div class = "titleFont">
+				<p class = "leftText"> {{this.languageService.strings.fuText}} </p>
+				<p class = "rightText">{{hand.fu}} {{this.languageService.strings.fuText}}</p>
+				<hr>
+			</div>
+		</div>
+		<div *ngFor="let fu of hand.fus">
+			<div class="fu" [ngClass] = "{ 'padBottom': (this.languageService.currentLanguage == 1)}">
+			<fu [name]="fu.name" 
+			  [fu]= "fu.fu" > 
+			  </fu>
+			  <span class="tooltiptext"> <font size="4"><u>{{fu.name}}</u></font> <br>
+											<i>{{fu.pronounciation}}</i> <br>{{fu.tooltip}} <br>  </span>
+			 </div>
+		</div>
+		</div>
+	</div>
+	<div class = "score">
+			<p class = "scoreText"> {{ hand.payout.generatePayoutString() }} </p>
+			<span class="tooltiptext">{{this.languageService.strings.basePointsText}} = 2<sup>(2 + {{this.languageService.strings.hanText}})</sup> * {{this.languageService.strings.fuText}}<br> 
+									{{hand.payout.generatePayoutCalculationString()}}<br>
+									{{hand.payout.generatePayoutDistributionString()}}</span> 
+ 
+	</div>
+
+	<tiles-section 
+		class="tiles-section"
+		[tiles]="hand.tiles"
+		[sets]="hand.sets"  >
+	</tiles-section>
+</div>
+
+<div class = "total" *ngFor="let hand of this.naiveRecognizerService.possibleHands;">
+	<h2 class="centerMistake">Predicted hand</h2>
+	<div [ngClass]="{'columnL': !hand.containsYakuman(), 'centerTable': hand.containsYakuman()}">
+		<div class = "titleFont">
+			<div *ngIf="!hand.containsYakuman()">
+				<p class = "leftText">{{this.languageService.strings.yakuText}}</p>
+				<div class = "nom">
+					<p class = "rightText">{{getHanString(hand)}}</p>
+					<span class="tooltiptext" *ngIf="(getHanString(hand).indexOf(' ') == -1) && this.languageService.currentLanguage == 1" >
+					満貫: 3* 4** 5 飜<br>
+					跳満: 6-7 飜<br>
+					倍満: 8-10 飜<br>
+					三倍満: 11-12 飜<br>
+					役満: 13+ 飜<br>
+					*3飜 + 70符以上<br>
+					**4飜 + 50符以上<br>
+					
+					</span>
+					<span class="tooltiptext" *ngIf="(getHanString(hand).indexOf(' ') == -1) && this.languageService.currentLanguage == 0" >
+					Mangan: 3* 4** 5 Han<br>
+					Haneman: 6-7 Han<br>
+					Baiman: 8-10 Han<br>
+					Sanbaiman: 11-12 Han<br>
+					Yakuman: 13+ Han<br>
+					*3 han + minimun of 70 fu<br>
+					**4 han + minimun of 50 fu<br>
+					</span>
+				</div>
+				<hr> 
+			</div>
+			<div *ngIf="hand.containsYakuman()">
+				<p class ="centerText" font size="7">{{this.languageService.strings.yakumanText}}</p>
+				<hr>
+			</div>
+		</div>
+		<div *ngIf="!hand.containsYakuman()">
+			<div *ngFor="let yaku of hand.validYaku">
+				<div class="yaku"
+					[ngClass] = "{ 'padBottom': (this.languageService.currentLanguage == 1)}">
+					<yaku [yaku] = "yaku"
+					[isOpen]= "hand.isOpen"
+					[isYakuman]="false"> </yaku>
+					<span class="tooltiptext"> <font size="4"><u>{{yaku.name}}</u></font> <br>
+											<i>{{yaku.pronounciation}}</i> <br>
+											{{yaku.tooltip}} <br> </span>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="hand.containsYakuman()">
+			<div *ngFor="let yaku of hand.getYakuman()">
+				<div class="yaku" 
+					[ngClass] = "{ 'padBottom': (this.languageService.currentLanguage == 1)}">
+					<yaku [yaku] = "yaku"
+					[isOpen]= "hand.isOpen"
+					[isYakuman]="true"> </yaku>
+					<span class="tooltiptext"> <font size="4"><u>{{yaku.name}}</u></font> <br>
+											<i>{{yaku.pronounciation}}</i> <br>
+											{{yaku.tooltip}} <br> </span>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="!hand.containsYakuman()">
+		<div *ngFor="let yaku of hand.otherYaku">
+			<div class="yaku">
+				<yaku [yaku] = "yaku"
+				[isOpen]= "hand.isOpen"
+				[isYakuman]="hand.han >= 13" > </yaku>
+				<span class="tooltiptext"> <font size="4"><u>{{yaku.name}}</u></font> <br>
+											<i>{{yaku.pronounciation}}</i> <br>
+											{{yaku.tooltip}} <br> </span>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	<div *ngIf="!hand.containsYakuman()">
+		<div class="columnR">
+		<div class="row">
+			<div class = "titleFont">
+				<p class = "leftText"> {{this.languageService.strings.fuText}} </p>
+				<p class = "rightText">{{hand.fu}} {{this.languageService.strings.fuText}}</p>
+				<hr>
+			</div>
+		</div>
+		<div *ngFor="let fu of hand.fus">
+			<div class="fu" [ngClass] = "{ 'padBottom': (this.languageService.currentLanguage == 1)}">
+			<fu [name]="fu.name" 
+			  [fu]= "fu.fu" > 
+			  </fu>
+			  <span class="tooltiptext"> <font size="4"><u>{{fu.name}}</u></font> <br>
+											<i>{{fu.pronounciation}}</i> <br>{{fu.tooltip}} <br>  </span>
+			 </div>
+		</div>
+		</div>
+	</div>
+	<div class = "score">
+			<p class = "scoreText"> {{ hand.payout.generatePayoutString() }} </p>
+			<span class="tooltiptext">{{this.languageService.strings.basePointsText}} = 2<sup>(2 + {{this.languageService.strings.hanText}})</sup> * {{this.languageService.strings.fuText}}<br> 
+									{{hand.payout.generatePayoutCalculationString()}}<br>
+									{{hand.payout.generatePayoutDistributionString()}}</span> 
+ 
+	</div>
+
+	<tiles-section 
+		class="tiles-section"
+		[tiles]="hand.tiles"
+		[sets]="hand.sets"  >
+	</tiles-section>
+</div>

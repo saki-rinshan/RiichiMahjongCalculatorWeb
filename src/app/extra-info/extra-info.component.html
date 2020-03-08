@@ -1,0 +1,97 @@
+<div class ="body">
+	<button (click)="this.modalService.open('dora-selector')" class="dora-button"> {{this.languageService.strings.addDoraText}}</button>
+	<div class="row" clear='both'>
+		<div class="column">
+			<img src="{{doraTiles.length>=1? getDoraFile(0) : getDoraFile(-1)}}" class = "doraTile"
+				[ngClass]="{ 'dora' : doraTiles.length>=1}"
+				(click)="doraTiles.length>=1? removeDora(0) : this.modalService.open('dora-selector')"
+				length ="100%" >
+		</div>
+	<div class="column">
+		<img src="{{doraTiles.length>=2? getDoraFile(1) : getDoraFile(-1)}}" class = "doraTile"
+			[ngClass]="{ 'dora' : doraTiles.length>=2}"
+			(click)="doraTiles.length>=2? removeDora(1) : this.modalService.open('dora-selector')"
+			length ="100%" >
+	</div>
+	<div class="column">
+		<img src="{{doraTiles.length>=3? getDoraFile(2) : getDoraFile(-1)}}" class = "doraTile"
+			[ngClass]="{ 'dora' : doraTiles.length>=3}"
+			(click)="doraTiles.length>=3? removeDora(2) : this.modalService.open('dora-selector')"
+			length ="100%" >
+	</div>
+	<div class="column">
+		<img src="{{doraTiles.length>=4? getDoraFile(3) : getDoraFile(-1)}}"class = "doraTile"
+			[ngClass]="{ 'dora' : doraTiles.length>=4}"
+			(click)="doraTiles.length>=4? removeDora(3) : this.modalService.open('dora-selector')"
+			length ="100%" >
+		</div>
+	</div>
+
+	<jw-modal id="dora-selector" >
+		<div class = "tiles">
+			<tiles (clicked)="addDora($event)" [isDoraSelection]="true"> </tiles>
+		</div>
+	</jw-modal>
+
+
+	<div class="row" clear='both'>
+		<p >{{this.languageService.strings.prevailingWindText}}</p>
+		<div class="column">
+			<img src='{{imgFolder}}Ton.png'class ='seat'  style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.prevailingWind==TileValue.East? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(false, TileValue.East)">
+		</div>
+		<div class="column">
+			<img src='{{imgFolder}}Nan.png' class ='seat'style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.prevailingWind==TileValue.South? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(false, TileValue.South)">
+		</div>
+		<div class="column">
+			<img src='{{imgFolder}}Shaa.png'class ='seat'  style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.prevailingWind==TileValue.West? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(false, TileValue.West)">
+		</div>
+		<div class="column">
+			<img src='{{imgFolder}}Pei.png' class ='seat'  style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.prevailingWind==TileValue.North? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(false, TileValue.North)">
+		</div>
+	</div>
+
+	<div class="row">
+		<p>{{this.languageService.strings.seatWindText}}</p>
+		<div class="column">
+			<img src='{{imgFolder}}Ton.png'class ='seat'  alt="Snow" style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.seatWind==TileValue.East? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(true, TileValue.East)">
+		</div>
+		<div class="column">
+			<img src='{{imgFolder}}Nan.png' class ='seat' alt="Forest" style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.seatWind==TileValue.South? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(true, TileValue.South)">
+		</div>
+		<div class="column">
+			<img src='{{imgFolder}}Shaa.png'class ='seat' alt="Mountains" style="width:100%"
+			[ngStyle]="{'background-color': this.extraInfoService.seatWind==TileValue.West? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(true, TileValue.West)">
+		</div>
+		<div class="column">
+			<img src='{{imgFolder}}Pei.png' class ='seat' alt="Forest" style="width:100%" 
+			[ngStyle]="{'background-color': this.extraInfoService.seatWind==TileValue.North? '#AFFFFF' :'#FFFFFF'}"
+			(click)="toggleWind(true, TileValue.North)">
+		</div>
+	</div>
+
+	<div class="buttons" *ngFor="let button of buttons">
+		<span class="tooltiptext"> <font size="4"><u>{{button.name}}</u></font> <br>
+												<i>{{button.pronounciation}}</i> <br>
+													{{button.tooltip}} <br> </span>
+		<button (click)="onClickMe(button)"
+			class="info-button"
+			[class.selected]="button.isToggled"> {{button.name}}</button>
+	</div>  
+	 
+	<p>{{this.languageService.strings.renchanText}} [ {{this.extraInfoService.renchanCounter}} ]</p>
+	<button (click)="incrementRenchan()">+</button>
+	<button (click)="decrementRenchan()">-</button>
+</div>

@@ -1,0 +1,10 @@
+<div class = "buttons">
+	<input type="checkbox" name="contains aka" (change)="akaChange()">{{this.languageService.strings.containsAkaText}}
+	<input type="checkbox" name="is open" (change)="openChange()" checked>{{this.languageService.strings.isOpenText}}
+	<div *ngFor="let button of setButtons">
+		<button (click)="shouldDisableSetButton(button) ? undefined : onClickMe(button)"  
+			[class.selected]="button.isToggled"
+			[ngClass] = "{'grayed': shouldDisableSetButton(button)}">	
+			{{button.name}}</button>
+	</div>  
+</div>

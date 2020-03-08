@@ -1,0 +1,225 @@
+.total {
+	display: block;
+	margin-bottom: 150px;
+}
+
+.centerMistake {
+	text-align: center;
+	clear: both;
+}
+
+.nom {
+	position: relative;
+}
+.nom .tooltiptext {
+	visibility: hidden;
+	width: 210px;
+	background-color: purple;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px;
+  
+	position: absolute;
+	z-index: 1;
+	left: 105%;
+}
+
+.nom:hover .tooltiptext {
+	visibility: visible;
+}
+
+
+hr {
+	display: block;
+	width: 100%;
+}
+
+.mangan {
+	padding-top: 100px;
+}
+
+.mangan p {
+	text-align: center;
+}
+
+.mangan hr {
+	
+	display: block;
+	width: 60%;
+}
+
+
+
+p {
+	white-space: pre;
+	text-align: left;
+	margin:0;
+	padding:0;
+	font-size: 18px;
+	font-family: "Times New Roman", Times, serif;
+}
+
+.hand {
+	clear: both;
+	color: black;
+	text-align: center;
+	background-color: #ffd1dc !important;
+	clear: both;
+	display: block;
+	margin-left:7%
+}
+
+tiles-section {
+	margin-left: 5%;
+	display: block;
+}
+
+.score {
+	padding-top: 30px;
+	display: block;
+	clear: both;
+	position: relative;
+}
+
+.scoreText {
+	display: block;
+	font-size:35px;
+	color: purple;
+	text-align: center;
+	margin: auto;
+}
+
+
+.score .tooltiptext {
+	visibility: hidden;
+	width: 190px;
+	background-color: purple;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 6px;
+  
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 50%; 
+	margin-left: -105px;
+}
+
+.scoreText:hover {
+	color: blue;
+}
+.score:hover .tooltiptext {
+	visibility: visible;
+}
+
+.columnL {
+	display: block;
+	float: left;
+	margin-left: 20%;
+	width: 20%;
+}
+
+.columnR {
+	display: block;
+	float: right;
+	margin-right: 20%;
+	width: 20%;
+}
+
+row {
+	text-align: justify;
+	clear: both;
+}
+
+.rightText {
+	text-align:right;
+	float: right;
+	width: 60%;
+}
+
+.leftText {
+	text-align: left;
+	float: left;
+	width: 40%;
+}
+.titleFont p {
+	font-size: 30px;
+}
+
+.centerTable {
+	margin-left: 30%;
+	margin-right: 30%;
+	text-align: center;
+	position: relative;
+}
+
+.yaku {
+	position: relative;
+}
+ 
+.padBottom {
+	position: relative;
+	padding-bottom: 27px;
+} 
+
+.yaku .tooltiptext {
+	visibility: hidden;
+	width: 210px;
+	background-color: purple;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px;
+  
+	position: absolute;
+	z-index: 1;
+	top: -60px;
+	
+	left: 105%;
+}
+.yaku:hover {
+	color: red;
+}
+
+.yaku:hover .tooltiptext {
+	visibility: visible;
+	
+}
+
+.fu {
+	position: relative;
+}
+
+.fu:hover {
+	color: red;
+}
+
+.fu .tooltiptext {
+	visibility: hidden;
+	width: 210px;
+	background-color: purple;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px;
+  
+	position: absolute;
+	z-index: 1;
+	left: 105%;
+	top: -20px;
+}
+
+.fu:hover .tooltiptext {
+	visibility: visible;
+}
+
+.centerText {
+	text-align: center;
+	margin-right: 2%;
+}
+
+.tiles-section {
+	padding-bottom: 100 px;
+}

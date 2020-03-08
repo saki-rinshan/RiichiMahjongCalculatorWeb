@@ -1,0 +1,122 @@
+<div class = "saki" [ngClass]="{ 'sidebaropened': sidebarOpened}">
+	<div class = "sidebar" [ngClass]="{ 'sidebaropened': sidebarOpened}">
+		<button class="sidebarOption" (click)="this.languageService.toggleLanguage()">{{this.languageService.getLanguageString()}}</button>
+		<button class="sidebarOption" (click)="openModal('info')">{{this.languageService.strings.infoText}}</button>
+		<button class="sidebarOption" (click)="openModal('Contact')">{{this.languageService.strings.contactMeText}}</button>
+		<button class="sidebarOption" (click)="openModal('Many thanks to')">{{this.languageService.strings.licenseText}}</button>
+		<button class="sidebarOption"(click)="sidebarOpened = false"><b>{{this.languageService.strings.closeText}} &times;</b></button>
+	</div>
+	
+	<jw-modal id="Contact">
+		<div *ngIf="this.languageService.currentLanguage==0">
+		<p>Found a bug? Have a comment or suggestion? Contact me at nith8222@gmail.com or through <a href="https://github.com/nith822">Github</a>
+		<br>
+		<br>
+		P.S. <i>There is <b>no bug</b> with the Rinshan Kaihou tooltip.</i></p>
+		</div>
+		
+		
+		<div *ngIf="this.languageService.currentLanguage==1">
+		<p>ブグそれとミスを見つかった? コメそれと進めをしたい? 連絡先は nith8222@gmail.com や <a href="https://github.com/nith822">Github</a>
+		<br>
+		<br>
+		P.S. 嶺上開花のヒントには<b>なんの問題はない</b>。</p>
+		</div>
+	</jw-modal >
+
+	<jw-modal id="info">
+		<div *ngIf="this.languageService.currentLanguage==0">
+		<p style="font-size:18px;"> Mahjong can be an overwhelmingly complex game. For a beginner there are many things to learn. When I first started, I was struggling to learn the various rules of mahjong and 30+ unique yaku. And once I finally won a round, I had to calculate the score. This was usually the most tilting part of the game for me and my friends. We didn't know many yaku or even the calculation formula and so we used a calculator. But it still took a long time, and once we were finished, we weren't even sure if it was correct. We wouldn't know what tanyao or even pinfu was and would go and search it up which would take even more time.
+		<br>
+		<br>
+		Back then, what I thought was important was playing and learning the basic game itself, not the calculations that came after a round was over. I built this calculator to help people like me and my friends who wanted to learn this wonderful game of riichi mahjong. Along with the most basic functions of any mahjong calculator, this calculator also has tooltips for all the yaku, fu, han, and the point scoring system in general. If you hover your mouse over the texts/buttons mentioned above, you will see their pronunciations and descriptions. Now, instead of having to go and search for what tanyao is or what was the scoring formula, it is all compiled into one place. 
+		<br>
+		<br>
+		I hope that you are able to find some use for this calculator.</p>
+		</div>
+		<div *ngIf="this.languageService.currentLanguage==1">
+		<p style="font-size:16px;">麻雀って時々圧倒的に複雑。初心者には色々な事を習わなければ習わない。僕が始まった頃、その多いなルールと３０以上の役を習うのはすごく難しかった。そして局をやっと和了った時計算があった。友達と僕にとってこれは麻雀の最もイライラとこ。数少ない役そして計算式も知らない僕達は計算機に頼れた。計算機を使っても色々な手間を掛けた。まずはその計算は本とに正しかったのかな？計算式を知らない僕達はその確かめる方法が面倒すぎてだっと思った。単に計算得点を受けた。それも断么九や平和さえ知らなかった。計算表に出た度にグーグル先生に問いかけた。「断么九とは？」　「平和とは？」
+		<br>
+		<br>	その時僕はその計算に拘る必要はないと思った。大事なのは麻雀の中心のプレー。だからこの計算機を作った。僕達見たい、この素敵な麻雀を習いたがっている人の為に。麻雀計算機の基本機能の追加、色々なヒントがある。その様々な役や符や計算得点をマウスをホバーと、そのふりがなと記述は見る事ができる。そのインフォメーションは大体ここに変種されています。
+		<br>
+		<br>
+		この計算機を役を立ていますように。
+		<br>
+		ところで, 日本人じゃないなので手加減してください。<p>
+		</div>
+	</jw-modal >
+	
+	<jw-modal id="Many thanks to">
+		<p> Many thanks to <b>Jason Watmore</b> for his <a href="
+			https://github.com/cornflourblue/angular-6-custom-modal">modal window code</a>. 
+			<br>
+			Liscensed under <i><a href="https://opensource.org/licenses/MIT">MIT License</a></i>.
+			<br>
+			<br>
+			Many thanks to <b>github/FlufflyStuff</b> for their <a href="
+			https://github.com/FluffyStuff/riichi-mahjong-tiles">mahjong tile assets</a>. 
+			<br>
+			Liscensed under <i><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></i>. 
+			<br>
+			<br>
+			Many thanks to <b>u/Barticle</b> for their <a href="https://www.reddit.com/r/Mahjong/comments/cicql2/automatic_riichi_mahjong_calculator/"> extensive feedback</a> to the mahjong calculator.
+			<br>
+			<br>
+			Many thanks to the <b>English Wikipedia</b> for the <a href="
+			https://en.wikipedia.org/wiki/Japanese_Mahjong">various bits of information</a> such as the English Yaku/Fu and score calculations.
+			<br>
+			Liscensed under <i><a href="https://creativecommons.org/licenses/by-sa/3.0/Creative">Commons Attribution-ShareAlike 3.0</a></i>.
+			<br>
+			<br>
+			Many thanks to the <b>Japanese Wikipedia</b> for the <a href="
+			https://ja.wikipedia.org/wiki/麻雀">various bits of information</a> such as the Japanese Yaku/Fu and other various names.
+			<br> 
+			Liscensed under <i><a href="https://creativecommons.org/licenses/by-sa/3.0/Creative">Commons Attribution-ShareAlike 3.0</a></i>. 
+			<br>
+			<br>
+			<br>
+			Thank you to my wonderful friends who got me started playing this tanoshii game x)
+
+		</p>
+	</jw-modal >
+	
+	<div style="text-align:center;  ">
+		<p class= "sidebarButton"(click)="sidebarOpened = true" *ngIf="!sidebarOpened">
+			&#9776;
+		</p> 
+		<div class="topGoogle">
+		<a href="https://play.google.com/store/apps/details?id=org.nativescript.RiichiMahjongCalculator">
+			<img src="assets\\img\\googlePlay.png" class="googlePlay">
+		</a>
+		</div>
+		<div class="topTitle">
+		<h3 class="title" id ="title" align="center">
+			{{this.languageService.strings.titleText}} 
+		</h3>
+		</div>
+		<div class="topLucky">
+		<button class="lucky" (click)="tenhouMe()"><b>I'm feeling lucky</b></button>
+		</div>
+		
+		<div class="topReset">
+		<button class="reset" (click)="clear()" >{{this.languageService.strings.resetAllText}}  </button>
+
+		</div>
+	</div>
+	<body> 
+		<main-tiles-display>
+		</main-tiles-display>
+	
+		<extra-info>
+		</extra-info> 
+	
+		<main-tiles-selection>
+		</main-tiles-selection>
+	</body>
+		<calculator> 
+		</calculator>
+		<div *ngIf="this.mainTilesService.totalTiles == 14" id="calculator"> 
+			<br>
+			<br>
+		</div>
+</div>

@@ -1,0 +1,44 @@
+input {
+	cursor: pointer;
+}
+
+.buttons {
+	clear: both;
+	display: block;
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+	width: 70%;
+	
+}
+
+div button {
+	display: grid;
+	text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5px;
+    width: 25%;
+	float: left;
+	max-width: 145px;
+}
+
+div button:hover {
+	-webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+	color: red;
+	font-weight:bold;
+}
+
+
+.grayed {
+	opacity: 0.4;
+	background-color: #AFFFFF
+}
+
+
+.selected {
+  background-color: #AFFFFF;
+  color: black;
+}
