@@ -133,7 +133,7 @@ export class Payout {
 		} else {
 			if(!this.isDealer) {
 				if(this.renchanCounter != 0) {
-					return  (Math.ceil((tally * 6)/100) * 100) + (300*this.renchanCounter)  + "";
+					return  (Math.ceil((tally * 4)/100) * 100) + (300*this.renchanCounter)  + "";
 				}
 				return  Math.ceil((tally * 4)/100) * 100  + "";
 			} else {
