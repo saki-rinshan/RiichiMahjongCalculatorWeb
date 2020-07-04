@@ -1,6 +1,6 @@
 # RiichiMahjongCalculator
 
-Angular web-app for calculating the score of Japanese Mahjong Hands with helpful tooltips. Feel free to shit on me for lack of certain software practices x)
+Angular web-app for calculating the score of Japanese Mahjong Hands with helpful tooltips. For those wondering, I did use version control for this project. However the lack of other software engineering artifacts may actually indicate the absence of certain practices.
 
 To run locally, run command: `ng serve` with the angular-cli installed.
 
